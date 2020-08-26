@@ -1,4 +1,4 @@
-# julia jeuh
+# julia main menu
 
 
 
@@ -115,16 +115,22 @@ show_menus() {
   echo " M A I N - M E N U  "
   echo "~~~~~~~~~~~~~~~~~~~~~"
   echo "~~~~~~~~~~~~~~~~~~~~~"
-  echo "10. git_clone ezahr julia                                   "
-  echo "11. git_clone OCI                                           "
-  echo "12  show_parameters                                         "
-  echo "20. set_all_Dockerfiles   $CERT_HOST_IP                     "
-  echo "21. set_docker_compose_travis_yml_without_volumes           "
-  echo "22. set_Dockerfile_mock_nlx                                 "
-  echo "23. set_Dockerfile_clerk_frontend_without_volumes           "
-  echo "24. set_Dockerfile_waardepapieren_service_without_volumes   "
-  echo "25. set_clerk_frontend_nginx_conf                           "
-  echo "26. set_waardepapieren_service_config_compose_travis_json    "
+  echo "20. ezahr AZ_ACI_waardepapieren-demo_westeurope_azurecontainer_io"
+  echo "21. ezahr chromebook_galliumOS"
+  echo "22. ezahr commonground"
+  echo "23. ezahr devops"
+  echo "24. ezahr DigitalOcean"
+  echo "25. ezahr huys"
+  echo "26. ezahr julia"
+  echo "27. ezahr k8s-repo"
+  echo "28. ezahr OCI"
+  echo "29. ezahr Waardepapieren-AZURE-ACI"
+  echo "30. ezahr fail-fast-and-cheap"
+  echo "31. ezahr MobileIron template"
+  echo "32. ezahr samsungs10e"
+  echo "33. ezahr dokuwiki"
+  echo "34. ezahr LPC-repo"
+  echo "35. ezahr azure-pipelines"
   echo "~~~~~~~~~~~~~~~~~~~~~"
   echo "99. Exit"
 }
@@ -137,17 +143,23 @@ read_options(){
 	local choice
 	read -p "Enter choice [ 1 - 99] " choice
 	case $choice in
-        10) git_clone ezahr julia                                                  ;;
-        11) git_clone OCI                                                          ;;
-        12) show_parameters                                                        ;;
-        20) set_all_Dockerfiles                                                    ;;
-        21) set_docker_compose_travis_yml_without_volumes                          ;;
-        22) set_Dockerfile_mock_nlx                                                ;;
-        23) set_Dockerfile_clerk_frontend_without_volumes                          ;;
-        24) set_Dockerfile_waardepapieren_service_without_volumes                  ;;
-        25) set_clerk_frontend_nginx_conf                                          ;;
-        26) set_waardepapieren_service_config_compose_travis_json                  ;;
-        99) Exit                                                                   ;;
+         20) git_clone ezahr AZ_ACI_waardepapieren-demo_westeurope_azurecontainer_io ;;
+         21) git_clone ezahr chromebook_galliumOS ;;
+         22) git_clone ezahr commonground ;;
+         23) git_clone ezahr devops ;;
+         24) git_clone ezahr DigitalOcean ;;
+         25) git_clone ezahr huys ;;
+         26) git_clone ezahr julia ;;
+         27) git_clone ezahr k8s-repo ;;
+         28) git_clone ezahr OCI ;;
+         29) git_clone ezahr Waardepapieren-AZURE-ACI ;;
+         30) git_clone ezahr fail-fast-and-cheap ;;
+         31) git_clone ezahr MobileIron template ;;
+         32) git_clone ezahr samsungs10e ;;
+         33) git_clone ezahr dokuwiki ;;
+         34) git_clone ezahr LPC-repo ;;
+         35) git_clone ezahr azure-pipelines  ;;  
+         99) Exit                                                                   ;;
 		*) echo -e "${RED}Error...${STD}" && sleep 1
 	esac
 }
@@ -200,52 +212,4 @@ fi
 
 
 # eof 
-````
-
-
-````
-##################################################################
-# Purpose: Procedure to clone de github repo on your pc
-# Arguments:
-# Return:
-##################################################################
-
-## https git clone https://ezahr:Peter\!....github.com/ezahr/fail-fast-and-cheap.git
-## ssh   git clone https://github.com/ezahr/fail-fast-and-cheap.git
-##       http://gitlab.example.com/root/ezahr_julia.git
-
-
-SCRIPT_DIR=/home/boscp08/Projects/scratch/virtual-insanity/fail-fast-and-cheap
-GITHUB_PROJECT_DIR=/home/boscp08/Projects/scratch/virtual-insanity/
-GITLAB_PROJECT_DIR=/home/boscp08/Projects/gitlab.example.com/
-REPO=julia
-JOB_START_DATE_TIME=`date +%Y%m%d_%H_%M`
-
-git_clone() {
- 
- cd ${GITHUB_PROJECT_DIR}
- rm -rf ${REPO}
- git clone https://github.com/ezahr/${REPO}.git
-
-
- cd ${GITLAB_PROJECT_DIR}
- rm -rf ${REPO}
- git clone http://gitlab.example.com/root/${REPO}.git
-
-cd $SCRIPT_DIR
-
-# rsync -av --exclude=".*" src dest 
-
-rsync -av --exclude=".*"  ${GITHUB_PROJECT_DIR}/${REPO}  ${GITLAB_PROJECT_DIR}  #maakt em eveentueel aan. 
-# 
-# cd ${GITLAB_PROJECT_DIR}/${REPO} 
-# 
-git add .
-# git status
-git commit -m `date +%Y%m%d_%H_%M`
-# git status
-git push origin master
-
-
-}
 ````
